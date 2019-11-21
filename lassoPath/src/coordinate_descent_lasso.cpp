@@ -41,12 +41,12 @@ arma::vec codelasso(arma::mat &X, arma::vec &y, double lambda, unsigned max_iter
     arma::vec hat_beta = arma::zeros(p);
     // initilize residuals
     arma::vec r = y;
-    // calculate the norm2 of each column of X (scaled by n)
-    arma::vec X_col_norm2 = arma::zeros(p);
+    // calculate the norm2 of each column of X (scaled by n) and X'y/n 
+    arma::vec X_col_norm2 = arma::zeros(p); 
     for (unsigned j = 0; j < p; j++)
     {
-        X_col_norm2(j) = dot(X.col(j), X.col(j)) / n;
-    }
+        X_col_norm2(j) = dot(X.col(j), X.col(j)) / n; 
+    } 
 
     unsigned t = 0;
     double gap = INFINITY;
@@ -58,10 +58,10 @@ arma::vec codelasso(arma::mat &X, arma::vec &y, double lambda, unsigned max_iter
         for (unsigned j = 0; j < p; j++)
         {
             double temp = dot(X.col(j), r) / n + X_col_norm2(j) * hat_beta(j);
-            hat_beta(j) = soft_threshold(temp, lambda) / X_col_norm2(j);
+            hat_beta(j) = soft_threshold(temp, lambda) / X_col_norm2(j); 
+            // update residuals
+            r = y - X * hat_beta;
         }
-        // update residuals
-        r = y - X * hat_beta;
         // update gap and index t
         gap = norm((hat_beta - hat_beta_old)) / norm(hat_beta_old);
         t = t + 1;
