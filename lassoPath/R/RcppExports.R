@@ -26,25 +26,25 @@ blasso <- function(X, y, eps, tol, max_iteration) {
 #' @param max_iteration maximum iteration number
 #' @param tol tolanrance parameter
 #' @return hat_beta lasso estimation with lambda
-#' @export 
-#' @aliases codelasso 
+#' @export
+#' @aliases codelasso
 codelasso <- function(X, y, lambda, max_iteration, tol) {
     .Call('_lassoPath_codelasso', PACKAGE = 'lassoPath', X, y, lambda, max_iteration, tol)
 }
 
-#' lasso solution path via coordinate descent algorithm 
-#' @param X predictor matrix 
-#' @param y response vector 
-#' @param nlambda the number of penalty parameter 
-#' @param max_iteration maximum iteration number 
-#' @param tol tolanrance parameter 
-#' @param min_lambda minimum lambda 
-#' @return A list consists of 
-#' \item{beta_path}{the solution path of beta} 
-#' \item{lambda_path}{the lambda path} 
+#' lasso solution path via coordinate descent algorithm
+#' @param X predictor matrix
+#' @param y response vector
+#' @param nlambda the number of penalty parameter
+#' @param max_iteration maximum iteration number
+#' @param tol tolanrance parameter
+#' @param min_lambda minimum lambda
+#' @return A list consists of
+#' \item{beta_path}{the solution path of beta}
+#' \item{lambda_path}{the lambda path}
 #' \item{sigma2_path}{the path of estimated variance via maximum likelihood estimation}
-#' @export 
-#' @aliases codelasso_path 
+#' @export
+#' @aliases codelasso_path
 codelasso_path <- function(X, y, nlambda, max_iteration, tol, min_lambda) {
     .Call('_lassoPath_codelasso_path', PACKAGE = 'lassoPath', X, y, nlambda, max_iteration, tol, min_lambda)
 }
