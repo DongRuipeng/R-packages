@@ -1,0 +1,11 @@
+*.exe 
+*.o 
+*.dll 
+.Rproj.user
+.Rbuildignore
+.Rhistory
+*.Rproj
+*.Rcheck
+*.tar.gz
+.RData
+*.zip

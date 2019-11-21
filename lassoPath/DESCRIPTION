@@ -1,0 +1,14 @@
+Package: lassoPath
+Type: Package
+Title: A package for computing lasso solution path
+Version: 1.0
+Date: 2019-11-18
+Author: Ruipeng Dong
+Maintainer: Ruipeng Dong <drp@ustc.edu.cn>
+Description: Solve Lasso optimization as follow $$(2n)^{-1}||y-X\beta||_{2}^{2} + \lambda||\beta||_{1}$$ and compute the solution path.
+License: GPL (>= 3.0)
+NeedsCompilation: yes
+Imports: Rcpp, RcppArmadillo
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 6.1.1
+Encoding: UTF-8
