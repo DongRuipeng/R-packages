@@ -21,15 +21,16 @@ blasso <- function(X, y, eps, tol, max_iteration) {
 #' coordinate descent algorithm for lasso
 #'
 #' @param X predictor matrix
-#' @param y response vector
+#' @param y response vector 
+#' @param hat_beta a warm start for iteration 
 #' @param lambda penalty parameter
 #' @param max_iteration maximum iteration number
 #' @param tol tolanrance parameter
 #' @return hat_beta lasso estimation with lambda
 #' @export
 #' @aliases codelasso
-codelasso <- function(X, y, lambda, max_iteration, tol) {
-    .Call('_lassoPath_codelasso', PACKAGE = 'lassoPath', X, y, lambda, max_iteration, tol)
+codelasso <- function(X, y, hat_beta, lambda, max_iteration, tol) {
+    .Call('_lassoPath_codelasso', PACKAGE = 'lassoPath', X, y, hat_beta, lambda, max_iteration, tol)
 }
 
 #' lasso solution path via coordinate descent algorithm

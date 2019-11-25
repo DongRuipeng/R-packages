@@ -4,12 +4,14 @@
 \alias{codelasso}
 \title{coordinate descent algorithm for lasso}
 \usage{
-codelasso(X, y, lambda, max_iteration, tol)
+codelasso(X, y, hat_beta, lambda, max_iteration, tol)
 }
 \arguments{
 \item{X}{predictor matrix}
 
 \item{y}{response vector}
+
+\item{hat_beta}{a warm start for iteration}
 
 \item{lambda}{penalty parameter}
 

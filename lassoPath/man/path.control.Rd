@@ -4,8 +4,14 @@
 \alias{path.control}
 \title{configure control list for lasso path}
 \usage{
-path.control(algo = "blasso", eps = 0.01, tol = 1e-06,
-  max_iteration = 5000, nlambda = 100, min_lambda = 0)
+path.control(
+  algo = "blasso",
+  eps = 0.01,
+  tol = 1e-06,
+  max_iteration = 5000,
+  nlambda = 100,
+  min_lambda = 0
+)
 }
 \arguments{
 \item{algo}{algorithm type where "blasso" and "code" mean stagewise and coordinate descent algorithm, respectively.}

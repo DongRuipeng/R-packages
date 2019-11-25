@@ -20,9 +20,9 @@ codelasso_path(X, y, nlambda, max_iteration, tol, min_lambda)
 \item{min_lambda}{minimum lambda}
 }
 \value{
-A list consists of 
-\item{beta_path}{the solution path of beta} 
-\item{lambda_path}{the lambda path} 
+A list consists of
+\item{beta_path}{the solution path of beta}
+\item{lambda_path}{the lambda path}
 \item{sigma2_path}{the path of estimated variance via maximum likelihood estimation}
 }
 \description{

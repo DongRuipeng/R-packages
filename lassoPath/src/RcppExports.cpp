@@ -22,17 +22,18 @@ BEGIN_RCPP
 END_RCPP
 }
 // codelasso
-arma::vec codelasso(arma::mat& X, arma::vec& y, double lambda, unsigned max_iteration, double tol);
-RcppExport SEXP _lassoPath_codelasso(SEXP XSEXP, SEXP ySEXP, SEXP lambdaSEXP, SEXP max_iterationSEXP, SEXP tolSEXP) {
+arma::vec codelasso(arma::mat& X, arma::vec& y, arma::vec& hat_beta, double lambda, unsigned max_iteration, double tol);
+RcppExport SEXP _lassoPath_codelasso(SEXP XSEXP, SEXP ySEXP, SEXP hat_betaSEXP, SEXP lambdaSEXP, SEXP max_iterationSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< arma::vec& >::type y(ySEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type hat_beta(hat_betaSEXP);
     Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
     Rcpp::traits::input_parameter< unsigned >::type max_iteration(max_iterationSEXP);
     Rcpp::traits::input_parameter< double >::type tol(tolSEXP);
-    rcpp_result_gen = Rcpp::wrap(codelasso(X, y, lambda, max_iteration, tol));
+    rcpp_result_gen = Rcpp::wrap(codelasso(X, y, hat_beta, lambda, max_iteration, tol));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -55,7 +56,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_lassoPath_blasso", (DL_FUNC) &_lassoPath_blasso, 5},
-    {"_lassoPath_codelasso", (DL_FUNC) &_lassoPath_codelasso, 5},
+    {"_lassoPath_codelasso", (DL_FUNC) &_lassoPath_codelasso, 6},
     {"_lassoPath_codelasso_path", (DL_FUNC) &_lassoPath_codelasso_path, 6},
     {NULL, NULL, 0}
 };
